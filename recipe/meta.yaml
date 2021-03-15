@@ -13,7 +13,9 @@ source:
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script:
+    - os.environ["SETUPTOOLS_SCM_PRETEND_VERSION"] = os.environ.get("PKG_VERSION")
+    - "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - mv_regex = mv_regex:main
 
@@ -21,10 +23,8 @@ requirements:
   host:
     - python >=3
     - pip
-    - setuptools
   run:
     - python >=3
-    - docopt
     - click
 
 test:
