@@ -17,7 +17,7 @@ build:
     - export SETUPTOOLS_SCM_PRETEND_VERSION="{{ version }}"
     - "{{ PYTHON }} -m pip install . -vv"
   entry_points:
-    - mv_regex = mv_regex:main
+    - mv_regex = mv_regex.cli.mv:main
 
 requirements:
   host:
