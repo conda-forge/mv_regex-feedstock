@@ -1,6 +1,6 @@
 {% set name = "mv_regex" %}
-{% set version = "0.2.0" %}
-{% set sha256 = "b4adc26cbeb3492e4fa82c1910b886a8009e41da274f0dd5d749fdc8c17d3fde" %}
+{% set version = "0.3.0" %}
+{% set sha256 = "afa8cfafeaa41a0d3d22c2215234f6336754d8fccae9fff3515866ad8218920f" %}
 
 package:
   name: {{ name|lower }}
@@ -13,22 +13,27 @@ source:
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script:
+    - export SETUPTOOLS_SCM_PRETEND_VERSION="{{ version }}"  # [unix]
+    - set SETUPTOOLS_SCM_PRETEND_VERSION="{{ version }}"  # [win]
+    - "{{ PYTHON }} -m pip install . -vv"
   entry_points:
-    - mv_regex = mv_regex:main
+    - mv_regex = mv_regex.cli.mv:main
 
 requirements:
   host:
     - python >=3
     - pip
-    - setuptools
+    - setuptools_scm
   run:
     - python >=3
-    - docopt
     - click
 
 test:
+  imports:
+    - mv_regex
   commands:
+    - mv_regex --version
     - mv_regex --help
 
 about:
@@ -36,8 +41,8 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Move files by applying an regular expression.'
-  description: 'Move files by applying an regular expression.'
+  summary: Move files by applying a regular expression.
+  description: Move files by applying a regular expression.
   doc_url: https://github.com/tdegeus/mv_regex
   dev_url: https://github.com/tdegeus/mv_regex
 
