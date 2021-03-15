@@ -14,8 +14,7 @@ build:
   number: 0
   noarch: python
   script:
-    - export SETUPTOOLS_SCM_PRETEND_VERSION="{{ version }}"  # [unix]
-    - set SETUPTOOLS_SCM_PRETEND_VERSION="{{ version }}"  # [win]
+    - export SETUPTOOLS_SCM_PRETEND_VERSION="{{ version }}"
     - "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - mv_regex = mv_regex:main
@@ -24,6 +23,7 @@ requirements:
   host:
     - python >=3
     - pip
+    - setuptools_scm
   run:
     - python >=3
     - click
