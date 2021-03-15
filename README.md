@@ -7,13 +7,13 @@ Package license: MIT
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mv_regex-feedstock/blob/master/LICENSE.txt)
 
-Summary: Move files by applying an regular expression.
+Summary: Move files by applying a regular expression.
 
 Development: https://github.com/tdegeus/mv_regex
 
 Documentation: https://github.com/tdegeus/mv_regex
 
-Move files by applying an regular expression.
+Move files by applying a regular expression.
 
 Current build status
 ====================
