@@ -28,7 +28,10 @@ requirements:
     - click
 
 test:
+  imports:
+    - mv_regex
   commands:
+    - mv_regex --version
     - mv_regex --help
 
 about:
@@ -36,8 +39,8 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: Move files by applying an regular expression.
-  description: Move files by applying an regular expression.
+  summary: Move files by applying a regular expression.
+  description: Move files by applying a regular expression.
   doc_url: https://github.com/tdegeus/mv_regex
   dev_url: https://github.com/tdegeus/mv_regex
 
